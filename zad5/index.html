@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Denys Busko | Zadanie 5</title>
+  <link rel="stylesheet" href="green.css" id="theme-style">
+  <!-- Denys Busko 77299 -->
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Denys Busko</h1>
+      <p>Student / Junior Developer</p>
+      <p><strong>Nr indeksu: 77299</strong></p>
+      
+      <div class="theme-switcher">
+        <button id="theme-red-btn">🔴 Czerwony</button>
+        <button id="theme-green-btn">🟢 Zielony</button>
+      </div>
+      
+      <button id="toggle-projects-btn">🙈 Ukryj Projekty</button>
+    </header>
+
+    <section id="kontakt">
+      <h2>Kontakt</h2>
+      <p>📍 Miasto: Warsaw (Kod pocztowy: 77299)</p>
+      <p>📧 Email: <a href="mailto:denysbusko@gmail.com">denysbusko@gmail.com</a></p>
+      <p>📞 Telefon: <a href="tel:+48886422469">+48 886 422 469</a></p>
+      <p>💻 GitHub: <a href="https://github.com/denys0011" target="_blank">github.com/denys0011</a></p>
+    </section>
+
+    <section id="o-mnie">
+      <h2>O mnie</h2>
+      <p>Mam 18 lat. Mieszkam w Warszawie. Jestem zmotywowany do nauki nowych technologii webowych i rozwoju swoich umiejętności programistycznych. Szukam możliwości zdobycia praktycznego doświadczenia.</p>
+    </section>
+
+    <section id="umiejetnosci">
+      <h2>Umiejętności</h2>
+      <ul>
+        <li>HTML5 & CSS3</li>
+        <li>Podstawy JavaScript</li>
+        <li>Obsługa Git / GitHub</li>
+        <li>Język angielski (B2)</li>
+        <li>Praca w zespole</li>
+        <li>Rozwiązywanie problemów</li>
+      </ul>
+    </section>
+
+    <section id="doswiadczenie">
+      <h2>Doświadczenie</h2>
+      <article>
+        <h3>Stażysta / Wolontariusz</h3>
+        <p><em>Warszawa | 2023 - Obecnie</em></p>
+        <p>Udział w projektach społecznych, pomoc w organizacji wydarzeń, nauka podstaw pracy biurowej.</p>
+      </article>
+      <article>
+        <h3>Praca dorywcza (Sezonowa)</h3>
+        <p><em>Warszawa | Lato 2023</em></p>
+        <p>Praca w obsłudze klienta, dbanie o porządek, komunikacja z zespołem.</p>
+      </article>
+    </section>
+
+    <section id="edukacja">
+      <h2>Edukacja</h2>
+      <article>
+        <h3>Szkoła Średnia / Liceum</h3>
+        <p><em>Warszawa | 2019 - 2023 (Przewidywany rok ukończenia)</em></p>
+      </article>
+    </section>
+
+    <section id="projekty-section">
+      <h2>Projekty</h2>
+      <article>
+        <h3>Strona wizytówka (To CV)</h3>
+        <p>Stworzenie responsywnej strony internetowej przy użyciu HTML5 i CSS3.</p>
+      </article>
+      <article>
+        <h3>Prosty kalkulator</h3>
+        <p>Aplikacja webowa wykonująca podstawowe działania matematyczne w JavaScript.</p>
+      </article>
+    </section>
+
+    <!-- ✅ ZADANIE 5: Formularz kontaktowy -->
+    <section id="kontakt-form-section">
+      <h2>📬 Formularz kontaktowy</h2>
+      <form id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="firstName">Imię *</label>
+          <input type="text" id="firstName" name="firstName" placeholder=" " required>
+          <span class="error-msg" id="firstName-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Nazwisko *</label>
+          <input type="text" id="lastName" name="lastName" placeholder=" " required>
+          <span class="error-msg" id="lastName-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" name="email" placeholder=" " required>
+          <span class="error-msg" id="email-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Wiadomość *</label>
+          <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
+          <span class="error-msg" id="message-error"></span>
+        </div>
+
+        <button type="submit" class="submit-btn">Wyślij wiadomość</button>
+        <p class="success-msg" id="success-message">✅ Wiadomość wysłana! (demo) - Denys Busko 77299</p>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Denys Busko. Wszystkie prawa zastrzeżone. | Nr indeksu: 77299</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
