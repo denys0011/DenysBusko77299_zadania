@@ -1,0 +1,67 @@
+body {
+  font-family: 'Verdana', 'Geneva', sans-serif;
+  background-color: #f0f2f0;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px; /* 🔹 Różnica: większe zaokrąglenie (w red.css: 4px) */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+header {
+  text-align: center;
+  border-bottom: 3px solid #2e8b57;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+header h1 {
+  color: #2e8b57;
+  margin-top: 10px;
+}
+header img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2e8b57;
+}
+h2 {
+  color: #2e8b57;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-top: 30px;
+}
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+a {
+  color: #2e8b57;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  text-decoration: underline;
+  color: #1e5c39;
+}
+article {
+  margin-bottom: 20px;
+  padding-left: 15px;
+  border-left: 4px solid #2e8b57;
+  background-color: #f9fff9; /* 🔹 Różnica: jasnozielone tło artykułu */
+  padding: 15px;
+}
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  color: #777;
+  font-size: 0.9em;
+}
