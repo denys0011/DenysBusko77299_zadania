@@ -6,22 +6,63 @@
     <title>CV - Denys Busko | Zadanie 7</title>
     <link rel="stylesheet" href="red.css">
     <style>
-        /* Минимальные стили только для новых элементов Zad7 */
+        /* ✅ ZADANIE 7 - Дополнительные стили */
         .task-item {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 15px; background: #fff; border-left: 4px solid #c0392b;
-            margin-bottom: 8px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #fff;
+            border-left: 4px solid #c0392b;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .task-item.green { border-left-color: #2e8b57; }
+        .task-item.green {
+            border-left-color: #2e8b57;
+        }
         .delete-btn {
-            background: #e74c3c; color: white; border: none; padding: 6px 12px;
-            border-radius: 4px; cursor: pointer; margin-left: 10px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
         }
-        .delete-btn:hover { background: #c0392b; }
-        .add-form { display: flex; gap: 10px; margin-bottom: 20px; }
-        .add-form input { flex: 1; padding: 10px; border: 2px solid #ccc; border-radius: 4px; }
-        .add-btn { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
-        .empty-msg { color: #777; font-style: italic; text-align: center; padding: 20px; }
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+        .add-task-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .add-task-form input {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .add-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .add-btn:hover {
+            background-color: #229954;
+        }
+        .empty-message {
+            color: #777;
+            font-style: italic;
+            text-align: center;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
@@ -31,6 +72,7 @@
             <h1>Denys Busko</h1>
             <p>Student / Junior Developer</p>
             <p>Nr indeksu: 77299</p>
+            
             <div class="theme-buttons">
                 <button id="theme-red-btn">🔴 Czerwony</button>
                 <button id="theme-green-btn">🟢 Zielony</button>
@@ -40,22 +82,36 @@
         <main>
             <!-- ✅ ZADANIE 7: Local Storage Section -->
             <section id="notatki-section">
-                <h2> Moje Notatki (LocalStorage)</h2>
+                <h2>📝 Moje Notatki/Zadania (LocalStorage)</h2>
                 <article>
-                    <form class="add-form" id="add-task-form">
-                        <input type="text" id="task-input" placeholder="Wpisz nową notatkę/zadanie..." required>
+                    <form class="add-task-form" id="add-task-form">
+                        <input type="text" id="task-input" placeholder="Wpisz nową notatkę lub zadanie..." required>
                         <button type="submit" class="add-btn">➕ Dodaj</button>
                     </form>
-                    <div id="tasks-list"></div>
-                    <p class="empty-msg" id="empty-msg">Brak zapisanych notatek. Dodaj pierwszą!</p>
+                    
+                    <h3>Lista zapisanych notatek:</h3>
+                    <div id="tasks-list">
+                        <!-- Tasks will be loaded from localStorage -->
+                    </div>
+                    <p class="empty-message" id="empty-msg">Brak zapisanych notatek. Dodaj pierwszą!</p>
+                </article>
+            </section>
+
+            <section id="stats-section">
+                <h2>📊 Statystyki</h2>
+                <article>
+                    <p>Liczba zapisanych notatek: <strong id="tasks-count">0</strong></p>
+                    <p>Ostatnia aktualizacja: <span id="last-update">-</span></p>
                 </article>
             </section>
         </main>
 
         <footer>
-            <p>© 2024 Denys Busko | Nr indeksu: 77299 | Zadanie 7 - Local Storage</p>
+            <p>© 2024 Denys Busko. Wszystkie prawa zastrzeżone. | Nr indeksu: 77299</p>
+            <p>Zadanie 7 - Local Storage</p>
         </footer>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
