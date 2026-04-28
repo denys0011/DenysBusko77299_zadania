@@ -1,0 +1,46 @@
+{
+  "personalInfo": {
+    "name": "Denys",
+    "surname": "Busko",
+    "email": "denysbusko@gmail.com",
+    "phone": "+48 886 422 469",
+    "city": "Warsaw",
+    "indexNumber": "77299"
+  },
+  "skills": [
+    "HTML5 & CSS3",
+    "Podstawy JavaScript",
+    "Obsługa Git / GitHub",
+    "Język angielski (B2)",
+    "Praca w zespole",
+    "Rozwiązywanie problemów"
+  ],
+  "projects": [
+    {
+      "title": "Strona wizytówka (To CV)",
+      "description": "Stworzenie responsywnej strony internetowej przy użyciu HTML5 i CSS3."
+    },
+    {
+      "title": "Prosty kalkulator",
+      "description": "Aplikacja webowa wykonująca podstawowe działania matematyczne w JavaScript."
+    },
+    {
+      "title": "Formularz kontaktowy",
+      "description": "Formularz z walidacją po stronie klienta."
+    }
+  ],
+  "experience": [
+    {
+      "position": "Stażysta / Wolontariusz",
+      "location": "Warszawa",
+      "period": "2023 - Obecnie",
+      "description": "Udział w projektach społecznych, pomoc w organizacji wydarzeń, nauka podstaw pracy biurowej."
+    },
+    {
+      "position": "Praca dorywcza (Sezonowa)",
+      "location": "Warszawa",
+      "period": "Lato 2023",
+      "description": "Praca w obsłudze klienta, dbanie o porządek, komunikacja z zespołem."
+    }
+  ]
+}

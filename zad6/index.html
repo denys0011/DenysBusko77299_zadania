@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Denys Busko | Zadanie 6</title>
+    <link rel="stylesheet" href="red.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="photo.jpg" alt="Denys Busko" id="profile-photo">
+            <h1 id="name">Denys Busko</h1>
+            <p>Student / Junior Developer</p>
+            <p>Nr indeksu: <span id="index-number">77299</span></p>
+            
+            <div class="theme-buttons">
+                <button id="theme-red-btn" onclick="changeTheme('red')">🔴 Czerwony</button>
+                <button id="theme-green-btn" onclick="changeTheme('green')">🟢 Zielony</button>
+                <button id="toggle-projects-btn" onclick="toggleSection()">🙈 Ukryj Projekty</button>
+            </div>
+        </header>
+
+        <main>
+            <section id="kontakt-section">
+                <h2>Kontakt</h2>
+                <article>
+                    <p>📍 Miasto: <span id="city">Warsaw</span> (Kod pocztowy: <span id="postal-code">77299</span>)</p>
+                    <p>📧 Email: <a id="email" href="mailto:denysbusko@gmail.com">denysbusko@gmail.com</a></p>
+                    <p>📞 Telefon: <a id="phone" href="tel:+48886422469">+48 886 422 469</a></p>
+                    <p>💻 GitHub: <a id="github" href="https://github.com/denys0011" target="_blank">github.com/denys0011</a></p>
+                </article>
+            </section>
+
+            <section id="o-mnie-section">
+                <h2>O mnie</h2>
+                <article>
+                    <p id="about-text">Mam 18 lat. Mieszkam w Warszawie. Jestem zmotywowany do nauki nowych technologii webowych i rozwoju swoich umiejętności programistycznych. Szukam możliwości zdobycia praktycznego doświadczenia.</p>
+                </article>
+            </section>
+
+            <section id="umiejetnosci-section">
+                <h2>Umiejętności</h2>
+                <article>
+                    <ul id="skills-list">
+                        <!-- Skills will be loaded from JSON -->
+                    </ul>
+                </article>
+            </section>
+
+            <section id="doswiadczenie-section">
+                <h2>Doświadczenie</h2>
+                <div id="experience-list">
+                    <!-- Experience will be loaded from JSON -->
+                </div>
+            </section>
+
+            <section id="edukacja-section">
+                <h2>Edukacja</h2>
+                <article>
+                    <p><strong>Szkoła Średnia / Liceum</strong></p>
+                    <p>Warszawa | 2019 - 2023 (Przewidywany rok ukończenia)</p>
+                </article>
+            </section>
+
+            <section id="projekty-section">
+                <h2>Projekty</h2>
+                <div id="projects-list">
+                    <!-- Projects will be loaded from JSON -->
+                </div>
+            </section>
+
+            <section id="kontakt-form-section">
+                <h2>📬 Formularz kontaktowy</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="firstName">Imię *</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Twoje imię" required>
+                        <span class="error-msg" id="firstName-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Nazwisko *</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Twoje nazwisko" required>
+                        <span class="error-msg" id="lastName-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email-form" name="email" placeholder="twoj@email.com" required>
+                        <span class="error-msg" id="email-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Wiadomość *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Twoja wiadomość..." required></textarea>
+                        <span class="error-msg" id="message-error"></span>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Wyślij wiadomość</button>
+                    <div class="success-msg" id="success-message">✅ Wiadomość wysłana! (demo)</div>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 Denys Busko. Wszystkie prawa zastrzeżone. | Nr indeksu: 77299</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
