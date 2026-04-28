@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Denys Busko | Zadanie 7</title>
+    <link rel="stylesheet" href="red.css">
+    <style>
+        /* Минимальные стили только для новых элементов Zad7 */
+        .task-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 15px; background: #fff; border-left: 4px solid #c0392b;
+            margin-bottom: 8px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .task-item.green { border-left-color: #2e8b57; }
+        .delete-btn {
+            background: #e74c3c; color: white; border: none; padding: 6px 12px;
+            border-radius: 4px; cursor: pointer; margin-left: 10px;
+        }
+        .delete-btn:hover { background: #c0392b; }
+        .add-form { display: flex; gap: 10px; margin-bottom: 20px; }
+        .add-form input { flex: 1; padding: 10px; border: 2px solid #ccc; border-radius: 4px; }
+        .add-btn { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+        .empty-msg { color: #777; font-style: italic; text-align: center; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="photo.jpg" alt="Denys Busko">
+            <h1>Denys Busko</h1>
+            <p>Student / Junior Developer</p>
+            <p>Nr indeksu: 77299</p>
+            <div class="theme-buttons">
+                <button id="theme-red-btn">🔴 Czerwony</button>
+                <button id="theme-green-btn">🟢 Zielony</button>
+            </div>
+        </header>
+
+        <main>
+            <!-- ✅ ZADANIE 7: Local Storage Section -->
+            <section id="notatki-section">
+                <h2> Moje Notatki (LocalStorage)</h2>
+                <article>
+                    <form class="add-form" id="add-task-form">
+                        <input type="text" id="task-input" placeholder="Wpisz nową notatkę/zadanie..." required>
+                        <button type="submit" class="add-btn">➕ Dodaj</button>
+                    </form>
+                    <div id="tasks-list"></div>
+                    <p class="empty-msg" id="empty-msg">Brak zapisanych notatek. Dodaj pierwszą!</p>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 Denys Busko | Nr indeksu: 77299 | Zadanie 7 - Local Storage</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
