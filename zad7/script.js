@@ -3,102 +3,141 @@
 
 const STORAGE_KEY = 'denys_busko_77299_tasks';
 
-// Загрузка задач из localStorage
+// ===== Local Storage Functions =====
+
+// Load tasks from localStorage
 function loadTasks() {
-    const data = localStorage.getItem(STORAGE_KEY);
-    return data ? JSON.parse(data) : [];
+    const tasksJSON = localStorage.getItem(STORAGE_KEY);
+    return tasksJSON ? JSON.parse(tasksJSON) : [];
 }
 
-// Сохранение в localStorage
+// Save tasks to localStorage
 function saveTasks(tasks) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    updateLastUpdate();
+    updateTasksCount();
 }
 
-// Отрисовка списка
+// Add new task
+function addTask(text) {
+    const tasks = loadTasks();
+    const newTask = {
+        id: Date.now(),
+        text: text.trim(),
+        createdAt: new Date().toLocaleString('pl-PL')
+    };
+    tasks.push(newTask);
+    saveTasks(tasks);
+    renderTasks();
+    console.log('✅ Zadanie 7 - Dodano notatkę:', newTask, '| Denys Busko 77299');
+}
+
+// Delete task
+function deleteTask(id) {
+    let tasks = loadTasks();
+    tasks = tasks.filter(task => task.id !== id);
+    saveTasks(tasks);
+    renderTasks();
+    console.log('✅ Zadanie 7 - Usunięto notatkę ID:', id, '| Denys Busko 77299');
+}
+
+// Render all tasks
 function renderTasks() {
     const tasks = loadTasks();
-    const list = document.getElementById('tasks-list');
+    const tasksList = document.getElementById('tasks-list');
     const emptyMsg = document.getElementById('empty-msg');
     
-    list.innerHTML = '';
-    
+    if (!tasksList) return;
+
     if (tasks.length === 0) {
+        tasksList.innerHTML = '';
         emptyMsg.style.display = 'block';
         return;
     }
-    
+
     emptyMsg.style.display = 'none';
-    
-    // Проверяем активную тему для цвета бордера
-    const isGreen = document.querySelector('link[rel="stylesheet"]').href.includes('green.css');
-    
+    tasksList.innerHTML = '';
+
+    // Check active theme
+    const link = document.querySelector('link[rel="stylesheet"]');
+    const isGreen = link && link.href.includes('green.css');
+
     tasks.forEach(task => {
-        const div = document.createElement('div');
-        div.className = isGreen ? 'task-item green' : 'task-item';
-        div.innerHTML = `
-            <span>${escapeHtml(task.text)}</span>
-            <button class="delete-btn" data-id="${task.id}">️ Usuń</button>
+        const taskDiv = document.createElement('div');
+        taskDiv.className = isGreen ? 'task-item green' : 'task-item';
+        
+        taskDiv.innerHTML = `
+            <div class="task-content">
+                <div class="task-text">${escapeHtml(task.text)}</div>
+                <div class="task-date">📅 ${task.createdAt}</div>
+            </div>
+            <button class="delete-btn" onclick="deleteTask(${task.id})">🗑️ Usuń</button>
         `;
-        list.appendChild(div);
+        
+        tasksList.appendChild(taskDiv);
     });
 }
 
-// Добавление задачи
-function addTask(text) {
-    const tasks = loadTasks();
-    tasks.push({ id: Date.now(), text: text.trim() });
-    saveTasks(tasks);
-    renderTasks();
-    console.log('✅ Zad7: Dodano notatkę | Denys Busko 77299');
+// Update tasks count
+function updateTasksCount() {
+    const countElement = document.getElementById('tasks-count');
+    if (countElement) {
+        const tasks = loadTasks();
+        countElement.textContent = tasks.length;
+    }
 }
 
-// Удаление задачи
-function deleteTask(id) {
-    let tasks = loadTasks();
-    tasks = tasks.filter(t => t.id !== id);
-    saveTasks(tasks);
-    renderTasks();
-    console.log('✅ Zad7: Usunięto notatkę | Denys Busko 77299');
+// Update last update time
+function updateLastUpdate() {
+    const lastUpdateSpan = document.getElementById('last-update');
+    if (lastUpdateSpan) {
+        lastUpdateSpan.textContent = new Date().toLocaleString('pl-PL');
+    }
 }
 
-// Защита от XSS
+// Escape HTML to prevent XSS
 function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
 }
 
-// Смена темы (из Zad4)
+// ===== ZADANIE 4: Change Theme (kept from previous) =====
 function changeTheme(theme) {
-    document.querySelector('link[rel="stylesheet"]').href = theme === 'red' ? 'red.css' : 'green.css';
-    renderTasks(); // Перерисовка для обновления цвета бордера
+    const link = document.querySelector('link[rel="stylesheet"]');
+    if (link) {
+        link.href = theme === 'red' ? 'red.css' : 'green.css';
+        renderTasks(); // Re-render to update border colors
+    }
 }
 
-// Инициализация
-document.addEventListener('DOMContentLoaded', () => {
+// ===== Initialization =====
+document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ Zadanie 7 - Local Storage załadowany | Denys Busko 77299');
     
+    // Load and render tasks
     renderTasks();
-    
-    // Кнопки темы
-    document.getElementById('theme-red-btn').addEventListener('click', () => changeTheme('red'));
-    document.getElementById('theme-green-btn').addEventListener('click', () => changeTheme('green'));
-    
-    // Форма добавления
-    document.getElementById('add-task-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const input = document.getElementById('task-input');
-        if (input.value.trim()) {
-            addTask(input.value);
-            input.value = '';
-        }
-    });
-    
-    // Делегирование клика на кнопку удаления
-    document.getElementById('tasks-list').addEventListener('click', (e) => {
-        if (e.target.classList.contains('delete-btn')) {
-            const id = Number(e.target.dataset.id);
-            deleteTask(id);
-        }
-    });
+    updateTasksCount();
+    updateLastUpdate();
+
+    // Add task form
+    const addTaskForm = document.getElementById('add-task-form');
+    if (addTaskForm) {
+        addTaskForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const taskInput = document.getElementById('task-input');
+            const text = taskInput.value.trim();
+            
+            if (text) {
+                addTask(text);
+                taskInput.value = '';
+            }
+        });
+    }
+
+    // Theme buttons
+    const themeRedBtn = document.getElementById('theme-red-btn');
+    const themeGreenBtn = document.getElementById('theme-green-btn');
+    if (themeRedBtn) themeRedBtn.addEventListener('click', () => changeTheme('red'));
+    if (themeGreenBtn) themeGreenBtn.addEventListener('click', () => changeTheme('green'));
 });
