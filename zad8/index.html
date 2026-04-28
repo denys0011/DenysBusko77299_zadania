@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Denys Busko | Zadanie 8</title>
+    <link rel="stylesheet" href="red.css">
+    <style>
+        .status-box {
+            margin-top: 15px; padding: 12px; border-radius: 6px; display: none; font-weight: bold;
+        }
+        .status-box.loading { display: block; background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+        .status-box.success { display: block; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .status-box.error { display: block; background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .backend-info {
+            background: #e7f3ff; padding: 15px; border-radius: 6px; margin-bottom: 20px;
+            border-left: 4px solid #0066cc; font-size: 0.95em;
+        }
+        .backend-info code { background: #fff; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="photo.jpg" alt="Denys Busko">
+            <h1>Denys Busko</h1>
+            <p>Student / Junior Developer</p>
+            <p>Nr indeksu: 77299</p>
+            <div class="theme-buttons">
+                <button id="theme-red-btn">🔴 Czerwony</button>
+                <button id="theme-green-btn">🟢 Zielony</button>
+            </div>
+        </header>
+
+        <main>
+            <section id="backend-section">
+                <h2>🚀 Zadanie 8 - Wysyłka danych na serwer (POST)</h2>
+                
+                <div class="backend-info">
+                    <strong>Backend:</strong> Firebase Realtime Database<br>
+                    <strong>Endpoint:</strong> <code>https://cv-denys-77299-default-rtdb.firebaseio.com/messages.json</code><br>
+                    <strong>Metoda:</strong> POST | <strong>Dane:</strong> zapisywane w chmurze, poza przeglądarką
+                </div>
+
+                <article>
+                    <h3>📬 Formularz kontaktowy (wysyłka na backend)</h3>
+                    <form id="contact-form-backend">
+                        <div class="form-group">
+                            <label for="firstName">Imię *</label>
+                            <input type="text" id="firstName" placeholder="Twoje imię" required>
+                            <span class="error-msg" id="firstName-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Nazwisko *</label>
+                            <input type="text" id="lastName" placeholder="Twoje nazwisko" required>
+                            <span class="error-msg" id="lastName-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" placeholder="twoj@email.com" required>
+                            <span class="error-msg" id="email-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Wiadomość *</label>
+                            <textarea id="message" rows="4" placeholder="Twoja wiadomość..." required></textarea>
+                            <span class="error-msg" id="message-error"></span>
+                        </div>
+                        <button type="submit" class="submit-btn" id="submit-btn">📤 Wyślij na serwer</button>
+                        <div id="status-box" class="status-box"></div>
+                    </form>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 Denys Busko | Nr indeksu: 77299 | Zadanie 8 - Backend (fetch POST)</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
